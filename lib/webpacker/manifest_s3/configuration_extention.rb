@@ -1,12 +1,12 @@
 module Webpacker
   module ManifestS3
     module ConfigurationExtention
-      def manifest_bucket
-        fetch(:manifest_bucket)
+      def manifest_s3_bucket
+        fetch(:manifest_s3_bucket)
       end
 
-      def manifest_key
-        fetch(:manifest_key)
+      def manifest_s3_key
+        fetch(:manifest_s3_key)
       end
 
       def aws_access_key_id
