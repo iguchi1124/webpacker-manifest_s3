@@ -6,3 +6,5 @@ require 'webpacker/manifest'
 
 Webpacker::Configuration.send(:extend, Webpacker::ManifestS3::ConfigurationExtention)
 Webpacker::Manifest.send(:prepend, Webpacker::ManifestS3::ManifestExtention)
+
+require 'webpacker/manifest_s3/engine' if defined?(Rails)
