@@ -20,6 +20,10 @@ module Webpacker
       def aws_region
         fetch(:aws_region)
       end
+
+      def upload_manifest_path
+        fetch(:upload_manifest_path)
+      end
     end
   end
 end
