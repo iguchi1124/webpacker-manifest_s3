@@ -11,6 +11,8 @@ module Webpacker
           return super unless File.exist?(@path)
           JSON.parse(File.read(@path))
         end
+      rescue Aws::S3::Errors::ServiceError
+        super
       end
     end
   end
