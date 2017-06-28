@@ -8,11 +8,10 @@ module Webpacker
           resp = Webpacker::ManifestS3::S3Client.get_manifest
           JSON.parse(resp.body.read)
         else
-          return super unless File.exist?(@path)
-          JSON.parse(File.read(@path))
+          super
         end
       rescue Aws::S3::Errors::ServiceError
-        super
+        {}
       end
     end
   end
