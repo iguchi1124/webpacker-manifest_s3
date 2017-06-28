@@ -9,16 +9,16 @@ module Webpacker
         fetch(:manifest_s3_key)
       end
 
+      def aws_region
+        fetch(:aws_region)
+      end
+
       def aws_access_key_id
         fetch(:aws_access_key_id)
       end
 
       def aws_secret_access_key
         fetch(:aws_secret_access_key)
-      end
-
-      def aws_region
-        fetch(:aws_region)
       end
 
       def upload_manifest_path

@@ -5,18 +5,27 @@ module Webpacker
     module S3Client
       class << self
         def get_manifest
+          logger.info 'Fetching webpacker manifest ...'
           s3_client.get_object(bucket: Webpacker::Configuration.manifest_s3_bucket, key: Webpacker::Configuration.manifest_s3_key)
         end
 
         def put_manifest
+          logger.info 'Uploading webpacker manifest file ...'
+
           s3_client.put_object(
             bucket: Webpacker::Configuration.manifest_s3_bucket,
             key: Webpacker::Configuration.manifest_s3_key,
             body: File.new(Webpacker::Configuration.upload_manifest_path),
           )
+
+          logger.info 'Done.'
         end
 
         private
+
+        def logger
+          @logger ||= Logger.new($stdout, level: Logger::INFO)
+        end
 
         def s3_client
           @s3_client ||= Aws::S3::Client.new(client_options)
